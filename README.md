@@ -47,11 +47,11 @@ solution which requires a high level of security.
 ```
 ### User
 ```
-* GET - product/: List all available Users 
-* GET - product/{id}: Get information about a user based on the product ID.
-* POST - product: Insert a new user.
-* PUT - product: Update user data.
-* DELETE - product/id: Remove a user.
+* GET - user/: List all available Users 
+* GET - user/{id}: Get information about a user based on the product ID.
+* POST - user: Insert a new user.
+* PUT - user: Update user data.
+* DELETE - user/{id}: Remove a user.
 ```
 ## Github repository
 
