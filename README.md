@@ -56,7 +56,7 @@ solution which requires a high level of security.
 ## Github repository
 
 ```
-https://github.com/abdesousa/mygameshop-api.git
+https://github.com/abdesousa/mypetshop-api.git
 ```
 
 
