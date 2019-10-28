@@ -1,0 +1,14 @@
+version: "3.7"
+services:
+  mygameshop-api:
+    build:
+      context: ./
+      dockerfile: src/main/docker/Dockerfile
+    image: neueda/mygameshop-api
+    ports:
+      - 8090
+    networks:
+      - network1
+ 
+networks:
+  network1:
