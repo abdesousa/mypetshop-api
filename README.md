@@ -53,6 +53,11 @@ solution which requires a high level of security.
 * PUT - user: Update user data.
 * DELETE - user/{id}: Remove a user.
 ```
+### Cart
+```
+*  
+```
+
 ## Github repository
 
 ```
@@ -66,7 +71,7 @@ Once the docker image isn't deployed on the DockerHUB, you should follow the ste
 1- Clone the project.
 
 ```
-https://github.com/abdesousa/mygameshop-api.git
+https://github.com/abdesousa/mypetshop-api.git
 ```
 2- Build the project. 
 
