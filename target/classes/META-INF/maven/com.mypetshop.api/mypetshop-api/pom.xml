@@ -17,7 +17,7 @@
 
 	<properties>
 		<java.version>1.8</java.version>
-		<start-class>com.mypetshop.api.mypetshopApplication</start-class>
+		<start-class>com.mypetshop.api.MyPetShopApplication</start-class>
 		<docker.image.prefix>mypetshop-api</docker.image.prefix>
 		<docker.image.tag> latest </docker.image.tag>
 		<docker.image.name>abdesousa/mypetshop-api</docker.image.name>

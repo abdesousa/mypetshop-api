@@ -12,7 +12,7 @@ import javax.persistence.Table;
 public class Item {	
 
 	@EmbeddedId
-	protected ItemPK itemPK;
+	private ItemPK itemPK;
 		
 	@Column(name = "product_item_vl")
 	private BigDecimal productItemValue;

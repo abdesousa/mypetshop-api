@@ -31,7 +31,7 @@ import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiResponse;
 import io.swagger.annotations.ApiResponses;
 
-@Api(value="user", description="Operations pertaining to users in My PetShop Online Store")
+@Api(value="/cart/user", description="Operations pertaining to users in My PetShop Online Store")
 @CrossOrigin()
 @RestController
 public class UserController {
@@ -53,7 +53,7 @@ public class UserController {
             @ApiResponse(code = 401, message = "002 - User list is empty."),
 
     })
-    @GetMapping("/user")
+    @GetMapping("/cart/user")
     @ResponseBody
     public ResponseEntity<?> list() {
     	
@@ -77,7 +77,7 @@ public class UserController {
             @ApiResponse(code = 401, message = "001 - User doesn't exist!"),
 
     })
-    @GetMapping("/user/{id}")
+    @GetMapping("/cart/user/{id}")
     @ResponseBody
     public ResponseEntity<?> getById(@PathVariable("id") Integer id) {
     	
@@ -99,7 +99,7 @@ public class UserController {
             @ApiResponse(code = 401, message = "003 - Error while inserting a new user."),
 
     })
-    @PostMapping("/user")
+    @PostMapping("/cart/user")
     @ResponseBody
     public ResponseEntity<?> insert(@RequestBody UserDTO userDTO) throws ParseException {
     	
@@ -123,7 +123,7 @@ public class UserController {
             @ApiResponse(code = 401, message = "004 - Error while updating a user."),
 
     })
-    @PutMapping("/user")
+    @PutMapping("/cart/user")
     @ResponseBody
     public ResponseEntity<?> update(@RequestBody UserDTO userDTO) throws ParseException {
     	
@@ -147,7 +147,7 @@ public class UserController {
             @ApiResponse(code = 401, message = "005 - Error while deleting a user."),
 
     })
-    @DeleteMapping("/user")
+    @DeleteMapping("/cart/user")
     @ResponseBody
     public ResponseEntity<?> delete(@PathVariable("id") Integer id) {
     	

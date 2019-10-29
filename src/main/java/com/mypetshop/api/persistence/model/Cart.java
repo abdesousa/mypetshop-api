@@ -2,11 +2,12 @@ package com.mypetshop.api.persistence.model;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -19,7 +20,7 @@ public class Cart {
 	private Integer cartId;
 
 	@JoinColumn(name = "user_id", referencedColumnName = "user_id")
-	@ManyToOne(optional = false)
+    @OneToOne(fetch = FetchType.LAZY)
 	private User user;
 		
 	public Cart() {
@@ -32,6 +33,12 @@ public class Cart {
 		this.user = user;
 	}
 
+	public Cart(User user) {
+		super();
+		this.setUser(user);
+		this.cartId = 0;
+	}
+	
 	public Integer getCartId() {
 		return cartId;
 	}

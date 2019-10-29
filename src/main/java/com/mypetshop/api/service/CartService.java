@@ -12,6 +12,8 @@ public interface CartService {
 	
 	public Optional<Cart> getByUserId(Optional<Integer> userId);
 	
+	public Optional<Cart> getById(Optional<Integer> id);
+	
 	public Optional<Cart> save(Optional<Cart> cart);
 	
 	public void delete(Optional<Cart> cart);

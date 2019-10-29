@@ -25,16 +25,28 @@ public class CartServiceImpl implements CartService {
 		this.cartRepository = cartRepository;
 	}
 
+	
+	
 	@Override
 	public Optional<Cart> getByUserId(Optional<Integer> userId) {
 
 		if (userId.isPresent()) {
-			return cartRepository.findById(userId.get());
+			return cartRepository.findByUserId(userId.get());
 		} else {
 			return Optional.empty();
 		}
 	}
 
+	@Override
+	public Optional<Cart> getById(Optional<Integer> id) {
+
+		if (id.isPresent()) {
+			return this.cartRepository.findById(id.get());
+		} else {
+			return Optional.empty();
+		}
+	}
+	
 	@Override
 	public Optional<Cart> save(Optional<Cart> cart) {
 		if (cart.isPresent()) {

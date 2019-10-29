@@ -28,7 +28,7 @@ solution which requires a high level of security.
 * Spring boot: Once I have a large background with java Springboot was the natural choose. With Spring is possible to create robust apis in few lines of code.
 * H2: The best solution to integrate natively with spring-data.
 * Flyway: To create the database as a code using the migrations 
-* JUNIT: All of the unit tests were created using junit and Mockito.
+* JUNIT: All of the unit tests were created using junit and Mockito. Because of few time to conclude the task I created the Unit tests only to the service layer.
 * One single project: Once this is a small test to evaluate my skills I have invlude everything in one single project. It is recommended to split on small project in order to be possible increase the individual scalability. 
 * Swagger2: One of the most used framework to document apis.
 * Lack Integration tests: Once it is possible to test the api through Swagger Integration tests weren't created.

@@ -29,8 +29,7 @@ CREATE TABLE IF NOT EXISTS tbl_item(
 	PRIMARY KEY (cart_id, product_id),
 );
 
-ALTER TABLE tbl_item ADD FOREIGN KEY ( fk_item_product_id ) REFERENCES tbl_product( product_id );
-ALTER TABLE tbl_item ADD FOREIGN KEY ( fk_item_user_id ) REFERENCES tbl_user( user_id );
+ALTER TABLE tbl_item ADD FOREIGN KEY ( product_id ) REFERENCES tbl_product( product_id );
 
 
 

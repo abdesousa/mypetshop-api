@@ -25,7 +25,7 @@ public interface ItemRepository extends JpaRepository<Item, ItemPK> {
      * @param cartId Cart id.
      * @return Optional of Cart object. 
      */
-	@Query("select i Item i where i.cartId = :cartId")
+	@Query("select i from Item i where i.itemPK.cartId = :cartId")
     public List<Item> findByCartId(@Param("cartId") Integer cartId);
 	
 }

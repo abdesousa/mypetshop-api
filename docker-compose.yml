@@ -4,7 +4,7 @@ services:
     build:
       context: ./
       dockerfile: src/main/docker/Dockerfile
-    image: neueda/mygameshop-api
+    image: abdesousa/mypetshop-api
     ports:
       - 8090
     networks:

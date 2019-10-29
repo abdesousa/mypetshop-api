@@ -1,5 +1,7 @@
 package com.mypetshop.api.persistence.repository;
 
+import java.util.Optional;
+
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
@@ -19,7 +21,7 @@ public interface CartRepository extends JpaRepository<Cart, Integer> {
      * @param userId User id.
      * @return Optional of Cart object. 
      */
-	@Query("select c from Cart c where c.userId = :userId")
-    public Cart findByUserId(@Param("userId") Integer userId);
+	@Query("select c from Cart c where c.user.userId = :userId")
+    public Optional<Cart> findByUserId(@Param("userId") Integer userId);
 	
 }

@@ -31,7 +31,7 @@ import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiResponse;
 import io.swagger.annotations.ApiResponses;
 
-@Api(value="product", description="Operations pertaining to products in My PetShop Online Store")
+@Api(value="/cart/product", description="Operations pertaining to products in My PetShop Online Store")
 @CrossOrigin()
 @RestController
 public class ProductController {
@@ -53,7 +53,7 @@ public class ProductController {
             @ApiResponse(code = 401, message = "002 - Product list is empty."),
 
     })
-    @GetMapping("/product")
+    @GetMapping("/cart/product")
     @ResponseBody
     public ResponseEntity<?> list() {
     	
@@ -77,7 +77,7 @@ public class ProductController {
             @ApiResponse(code = 401, message = "001 - Product doesn't exist!"),
 
     })
-    @GetMapping("/product/{id}")
+    @GetMapping("/cart/product/{id}")
     @ResponseBody
     public ResponseEntity<?> getById(@PathVariable("id") Integer id) {
     	
@@ -99,7 +99,7 @@ public class ProductController {
             @ApiResponse(code = 401, message = "003 - Error while inserting a new product."),
 
     })
-    @PostMapping("/product")
+    @PostMapping("/cart/product")
     @ResponseBody
     public ResponseEntity<?> insert(@RequestBody ProductDTO productDTO) throws ParseException {
     	
@@ -123,7 +123,7 @@ public class ProductController {
             @ApiResponse(code = 401, message = "004 - Error while updating a product."),
 
     })
-    @PutMapping("/product")
+    @PutMapping("/cart/product")
     @ResponseBody
     public ResponseEntity<?> update(@RequestBody ProductDTO productDTO) throws ParseException {
     	
@@ -147,7 +147,7 @@ public class ProductController {
             @ApiResponse(code = 401, message = "005 - Error while deleting a product."),
 
     })
-    @DeleteMapping("/product")
+    @DeleteMapping("/cart/product")
     @ResponseBody
     public ResponseEntity<?> delete(@PathVariable("id") Integer id) {
     	
