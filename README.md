@@ -1,4 +1,4 @@
-# My Game Shop API
+# My Pet Shop Shop API
 ## Table of contents
 * [General info](#general-info)
 * [Technologies](#technologies)
@@ -8,7 +8,7 @@
 * [Setup](#setup)
 
 ## General info
-I created this api to demonstrate my abilities as software developer.
+I created this api to demonstrate my abilities as software developer with a simple crud.
 
 ## Technologies
 
@@ -22,7 +22,6 @@ I created this api to demonstrate my abilities as software developer.
 * Swagger2
 
 ## Decisions Made:
-* URL Shortener: Once I have never created an URL shortner I focused on my strenghts. During the week I will update the project with a solution for this.
 * Security: Basic Authentication on the data in transit in order to ensure a reliable communication to the single test application. Think about the use of oAuth2 instead of basic authentication for 
 solution which requires a high level of security.  
 * Spring boot: Once I have a large background with java Springboot was the natural choose. With Spring is possible to create robust apis in few lines of code.
@@ -37,16 +36,27 @@ solution which requires a high level of security.
 
 
 ## API
-```
-* product/: List all available products 
+### Product
 
-* product/{id}: Get information about a product based on the product ID.
 ```
-
+* GET - product/: List all available products 
+* GET - product/{id}: Get information about a product based on the product ID.
+* POST - product: Insert a new product.
+* PUT - product: Update product data.
+* DELETE - product/id: Remove a product.
+```
+### User
+```
+* GET - user/: List all available Users 
+* GET - user/{id}: Get information about a user based on the product ID.
+* POST - user: Insert a new user.
+* PUT - user: Update user data.
+* DELETE - user/{id}: Remove a user.
+```
 ## Github repository
 
 ```
-https://github.com/abdesousa/mygameshop-api.git
+https://github.com/abdesousa/mypetshop-api.git
 ```
 
 
