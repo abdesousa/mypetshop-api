@@ -59,16 +59,11 @@ public class ProductController {
     	
     	List<Product> products = service.list();
     	  
-    	if (!products.isEmpty()) {  		
-    		
-    		return new ResponseEntity<List<MainDTO>>(
-    				products.stream().map(s -> convertToDto(s)).collect(Collectors.toList()), HttpStatus.OK); 
-    		
-    	} else {
-    		
-    		return new ResponseEntity<MainDTO>(new ErrorDTO(messages.get("msg.productlist.empty.code"),messages.get("msg.productlist.empty.detail")), HttpStatus.BAD_REQUEST); 
-
-    	}
+    	
+		return new ResponseEntity<List<MainDTO>>(
+				products.stream().map(s -> convertToDto(s)).collect(Collectors.toList()), HttpStatus.OK); 
+		
+    	
     }
 
     @ApiOperation(value = "View the information of a product", response = ProductDTO.class)
@@ -83,14 +78,8 @@ public class ProductController {
     	
     	Optional<Product> product = service.getById(Optional.ofNullable(id));
     	  
-    	if (product.isPresent()) {  		
-    		return new ResponseEntity<MainDTO>(convertToDto(product.get()), HttpStatus.OK); 
-    		
-    	} else {
-    		
-    		return new ResponseEntity<MainDTO>(new ErrorDTO(messages.get("msg.product.notexists.code"),messages.get("msg.product.notexists.detail")), HttpStatus.BAD_REQUEST); 
-    		
-    	}
+    	return new ResponseEntity<MainDTO>(convertToDto(product.get()), HttpStatus.OK); 
+    	
     }
 	
     @ApiOperation(value = "Insert a product into MY Pet Shop.", response = List.class)

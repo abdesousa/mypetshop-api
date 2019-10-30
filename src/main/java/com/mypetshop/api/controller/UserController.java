@@ -59,16 +59,9 @@ public class UserController {
     	
     	List<User> users = service.list();
     	  
-    	if (!users.isEmpty()) {  		
-    		
-    		return new ResponseEntity<List<MainDTO>>(
-    				users.stream().map(s -> convertToDto(s)).collect(Collectors.toList()), HttpStatus.OK); 
-    		
-    	} else {
-    		
-    		return new ResponseEntity<MainDTO>(new ErrorDTO(messages.get("msg.userlist.empty.code"),messages.get("msg.userlist.empty.detail")), HttpStatus.BAD_REQUEST); 
-
-    	}
+		return new ResponseEntity<List<MainDTO>>(
+				users.stream().map(s -> convertToDto(s)).collect(Collectors.toList()), HttpStatus.OK); 
+	
     }
 
     @ApiOperation(value = "View the information of a user", response = UserDTO.class)
