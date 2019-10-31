@@ -22,15 +22,19 @@ public class ProductDTO extends MainDTO  implements Serializable{
 
 	private BigDecimal productValue;
 	
+	private String productUrl;
+
+	
 	public ProductDTO() {
 		super();
 	}
 	
 
-	public ProductDTO(Integer productId, String productName, BigDecimal productValue) {
+	public ProductDTO(Integer productId, String productName, BigDecimal productValue, String productUrl) {
 		super();
 		this.productId = productId;
 		this.productName = productName;
+		this.productUrl = productUrl;
 		this.productValue = productValue;
 	}
 
@@ -57,6 +61,16 @@ public class ProductDTO extends MainDTO  implements Serializable{
 
 	public void setProductValue(BigDecimal productValue) {
 		this.productValue = productValue;
+	}
+
+
+	public String getProductUrl() {
+		return productUrl;
+	}
+
+
+	public void setProductUrl(String productUrl) {
+		this.productUrl = productUrl;
 	}
 
 }

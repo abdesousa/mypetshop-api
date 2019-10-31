@@ -24,20 +24,26 @@ public class Product {
 	@Column(name = "product_vl")
 	private BigDecimal productValue;
 	
+
+	@Column(name = "product_url")
+	private String productUrl;
+	
 	public Product() {
 		super();
 	}
 
 	
 	public Product(Integer productId) {
-		this(productId,null,null);
+		this(productId,null,null,null);
 	}
 
-	public Product(Integer productId, String productName, BigDecimal productValue) {
+	public Product(Integer productId, String productName, BigDecimal productValue, String productUrl) {
 		super();
 		this.productId = productId;
 		this.productName = productName;
 		this.productValue = productValue;
+		this.productUrl = productUrl;
+
 	}
 
 	public Integer getProductId() {
@@ -62,5 +68,15 @@ public class Product {
 
 	public void setProductValue(BigDecimal productValue) {
 		this.productValue = productValue;
+	}
+
+
+	public String getProductUrl() {
+		return productUrl;
+	}
+
+
+	public void setProductUrl(String productUrl) {
+		this.productUrl = productUrl;
 	}
 }

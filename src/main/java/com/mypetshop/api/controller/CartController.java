@@ -74,7 +74,7 @@ public class CartController {
 							i.getItemPK().getCartId(),
 							i.getItemPK().getProductId(),
 							i.getProductItemValue(), 
-							i.getProductItemQuantity())
+							i.getProductItemQuantity(),i.getProductItemUrl())
 				).collect(Collectors.toList())
 			);    		
     		
@@ -109,7 +109,8 @@ public class CartController {
 		Item item = new Item(
 		    				new ItemPK(itemDTO.getCartId(),itemDTO.getProductId()), 
 		    					itemDTO.getProductItemValue(), 
-		    					itemDTO.getProductItemQuantity());
+		    					itemDTO.getProductItemQuantity(), 
+		    					itemDTO.getProductItemUrl());
     		
     	Optional<Item> itemReturn = this.itemService.save(Optional.of(item));
     	  
@@ -121,7 +122,8 @@ public class CartController {
     						itemReturn.get().getItemPK().getProductId(),
     						itemDTO.getUserId(),
     						itemReturn.get().getProductItemValue(),
-    						itemReturn.get().getProductItemQuantity()), HttpStatus.OK); 
+    						itemReturn.get().getProductItemQuantity(),
+    						itemReturn.get().getProductItemUrl()), HttpStatus.OK); 
     		
     	} else {
     		
@@ -143,7 +145,8 @@ public class CartController {
     		Item item = new Item(
     				new ItemPK(itemDTO.getCartId(),itemDTO.getProductId()), 
     					itemDTO.getProductItemValue(), 
-    					itemDTO.getProductItemQuantity());
+    					itemDTO.getProductItemQuantity(), 
+    					itemDTO.getProductItemUrl());
         	
     		this.itemService.delete(Optional.of(item));
     	    	

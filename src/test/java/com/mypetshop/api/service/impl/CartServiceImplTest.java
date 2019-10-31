@@ -2,14 +2,12 @@ package com.mypetshop.api.service.impl;
 
 import static org.junit.Assert.assertEquals;
 
-import java.math.BigDecimal;
 import java.util.Optional;
 
 import org.junit.Test;
 import org.mockito.Mockito;
 
 import com.mypetshop.api.persistence.model.Cart;
-import com.mypetshop.api.persistence.model.Product;
 import com.mypetshop.api.persistence.model.User;
 import com.mypetshop.api.persistence.repository.CartRepository;
 import com.mypetshop.api.service.CartService;

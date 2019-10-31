@@ -24,23 +24,27 @@ public class ItemDTO extends MainDTO  implements Serializable{
 
 	private BigDecimal productItemValue;
 
+	private String productItemUrl;
+
 	private Integer productItemQuantity;
 
 	public ItemDTO() {
 		super();
 	}
 
-	public ItemDTO(Integer cartId, Integer productId, Integer userId, BigDecimal productItemValue, Integer productItemQuantity) {
+	public ItemDTO(Integer cartId, Integer productId, Integer userId, BigDecimal productItemValue, Integer productItemQuantity, String productItemUrl) {
 		super();
 		this.cartId = cartId;
 		this.productId = productId;
+		this.productItemUrl = productItemUrl;
+
 		this.productItemValue = productItemValue;
 		this.productItemQuantity = productItemQuantity;
 		this.userId = userId;
 	}
 
-	public ItemDTO(Integer cartId, Integer productId, BigDecimal productItemValue, Integer productItemQuantity) {
-		this(cartId, productId, 0, productItemValue, productItemQuantity);
+	public ItemDTO(Integer cartId, Integer productId, BigDecimal productItemValue, Integer productItemQuantity, String productItemUrl) {
+		this(cartId, productId, 0, productItemValue, productItemQuantity,productItemUrl);
 	}
 	
 	public Integer getCartId() {
@@ -81,6 +85,14 @@ public class ItemDTO extends MainDTO  implements Serializable{
 
 	public void setUserId(Integer userId) {
 		this.userId = userId;
+	}
+
+	public String getProductItemUrl() {
+		return productItemUrl;
+	}
+
+	public void setProductItemUrl(String productItemUrl) {
+		this.productItemUrl = productItemUrl;
 	}
 	
 }

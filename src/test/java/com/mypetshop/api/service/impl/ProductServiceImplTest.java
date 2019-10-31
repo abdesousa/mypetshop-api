@@ -34,8 +34,8 @@ public class ProductServiceImplTest {
     	//Given
         List<Product> productMockedList = new ArrayList<Product>();          
         
-        productMockedList.add(new Product(1, "Product 1", BigDecimal.valueOf(60.0)));
-        productMockedList.add(new Product(2, "Product 2", BigDecimal.valueOf(90.0)));
+        productMockedList.add(new Product(1, "Product 1", BigDecimal.valueOf(60.0), "url_product_1"));
+        productMockedList.add(new Product(2, "Product 2", BigDecimal.valueOf(90.0), "url_product_2"));
 
         Mockito.when(productRepository.findAll()).thenReturn(productMockedList);
 
@@ -44,10 +44,12 @@ public class ProductServiceImplTest {
         assertEquals(Integer.valueOf(1), productReturned.get(0).getProductId());
         assertEquals("Product 1", productReturned.get(0).getProductName());
         assertEquals(BigDecimal.valueOf(60.0), productReturned.get(0).getProductValue());
-        
+        assertEquals("url_product_1", productReturned.get(0).getProductUrl());
+   
         assertEquals(Integer.valueOf(2), productReturned.get(1).getProductId());
         assertEquals("Product 2", productReturned.get(1).getProductName());
         assertEquals(BigDecimal.valueOf(90.0), productReturned.get(1).getProductValue());
+        assertEquals("url_product_2", productReturned.get(1).getProductUrl());
 
     }
     
@@ -63,7 +65,7 @@ public class ProductServiceImplTest {
     public void givenProductIdWhenExistsProductThenReturnProductInformation() {
 
     	Optional<Integer> id = Optional.of(4);
-        Optional<Product> productmocked = Optional.of(new Product(4, "Product 4", BigDecimal.valueOf(60.0)));          
+        Optional<Product> productmocked = Optional.of(new Product(4, "Product 4", BigDecimal.valueOf(60.0), "url_product_4"));          
         
         Mockito.when(productRepository.findById(id.get())).thenReturn(productmocked);
 
@@ -72,7 +74,8 @@ public class ProductServiceImplTest {
         assertEquals(Integer.valueOf(4), productReturned.get().getProductId());
         assertEquals("Product 4", productReturned.get().getProductName());
         assertEquals(BigDecimal.valueOf(60.0), productReturned.get().getProductValue());
-        
+        assertEquals("url_product_4", productReturned.get().getProductUrl());
+
     }
 
     @Test
