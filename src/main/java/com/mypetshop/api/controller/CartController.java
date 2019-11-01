@@ -74,7 +74,9 @@ public class CartController {
 							i.getItemPK().getCartId(),
 							i.getItemPK().getProductId(),
 							i.getProductItemValue(), 
-							i.getProductItemQuantity(),i.getProductItemUrl())
+							i.getProductItemQuantity(),
+							i.getProductItemName(),
+							i.getProductItemUrl())
 				).collect(Collectors.toList())
 			);    		
     		
@@ -97,19 +99,23 @@ public class CartController {
     @ResponseBody
     public ResponseEntity<?> insertItem(@RequestBody ItemDTO itemDTO) {
     	
-    	if (itemDTO.getCartId() == 0 || itemDTO.getCartId() == null) {
+    	Optional<Cart> cartExistsByUser = this.cartService.getByUserId(Optional.of(itemDTO.getUserId()));
+    	
+    	if (!cartExistsByUser.isPresent()) {
 
     		Cart cart = new Cart(new User(itemDTO.getUserId())); 
 			Optional<Cart> cartReturn = this.cartService.save(Optional.of(cart));
-			
 			itemDTO.setCartId(cartReturn.get().getCartId());
 			
+    	} else {
+			itemDTO.setCartId(cartExistsByUser.get().getCartId());
     	}
     	    	
 		Item item = new Item(
-		    				new ItemPK(itemDTO.getCartId(),itemDTO.getProductId()), 
+		    				new ItemPK(itemDTO.getCartId(),itemDTO.getProductId()),		    					
 		    					itemDTO.getProductItemValue(), 
 		    					itemDTO.getProductItemQuantity(), 
+		    					itemDTO.getProductItemName(),
 		    					itemDTO.getProductItemUrl());
     		
     	Optional<Item> itemReturn = this.itemService.save(Optional.of(item));
@@ -123,6 +129,7 @@ public class CartController {
     						itemDTO.getUserId(),
     						itemReturn.get().getProductItemValue(),
     						itemReturn.get().getProductItemQuantity(),
+    						itemReturn.get().getProductItemName(),
     						itemReturn.get().getProductItemUrl()), HttpStatus.OK); 
     		
     	} else {
@@ -146,6 +153,7 @@ public class CartController {
     				new ItemPK(itemDTO.getCartId(),itemDTO.getProductId()), 
     					itemDTO.getProductItemValue(), 
     					itemDTO.getProductItemQuantity(), 
+    					itemDTO.getProductItemName(),
     					itemDTO.getProductItemUrl());
         	
     		this.itemService.delete(Optional.of(item));

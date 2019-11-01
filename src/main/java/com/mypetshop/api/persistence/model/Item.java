@@ -23,15 +23,19 @@ public class Item {
 	@Column(name = "product_item_qty")
 	private Integer productItemQuantity;
 	
+	@Column(name = "product_item_nm")
+	private String productItemName;
+	
 	public Item() {
 		super();
 	}
 
-	public Item(ItemPK itemPK, BigDecimal productItemValue, Integer productItemQuantity,String productItemUrl) {
+	public Item(ItemPK itemPK, BigDecimal productItemValue, Integer productItemQuantity,String productItemName,String productItemUrl) {
 		super();
 		this.itemPK = itemPK;
 		this.productItemValue = productItemValue;
 		this.productItemQuantity = productItemQuantity;
+		this.productItemName = productItemName;
 		this.productItemUrl = productItemUrl;
 
 	}
@@ -66,5 +70,13 @@ public class Item {
 
 	public void setProductItemUrl(String productItemUrl) {
 		this.productItemUrl = productItemUrl;
+	}
+
+	public String getProductItemName() {
+		return productItemName;
+	}
+
+	public void setProductItemName(String productItemName) {
+		this.productItemName = productItemName;
 	}
 }

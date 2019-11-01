@@ -27,6 +27,8 @@ CREATE TABLE IF NOT EXISTS tbl_item(
 	product_id INT NOT NULL,
 	product_item_vl DECIMAL(10,2) NOT NULL,
 	product_item_qty INT NOT NULL,
+	product_item_nm VARCHAR(100) NOT NULL,
+	product_item_url VARCHAR(255) NOT NULL,
 	PRIMARY KEY (cart_id, product_id),
 );
 
