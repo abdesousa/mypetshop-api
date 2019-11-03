@@ -1,6 +1,7 @@
 package com.mypetshop.api.dto;
 
 import java.io.Serializable;
+import java.math.BigDecimal;
 import java.util.List;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -18,6 +19,9 @@ public class CartDTO extends MainDTO  implements Serializable{
 	private Integer cartId;
 	
 	private Integer userId;
+	
+	private BigDecimal totalValue;
+
 
 	private List<ItemDTO> items;
 
@@ -58,6 +62,14 @@ public class CartDTO extends MainDTO  implements Serializable{
 
 	public void setItems(List<ItemDTO> items) {
 		this.items = items;
+	}
+
+	public BigDecimal getTotalValue() {
+		return totalValue;
+	}
+
+	public void setTotalValue(BigDecimal totalValue) {
+		this.totalValue = totalValue;
 	}
 
 	

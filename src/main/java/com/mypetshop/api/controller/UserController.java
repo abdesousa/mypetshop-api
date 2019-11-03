@@ -20,7 +20,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.mypetshop.api.components.Messages;
-import com.mypetshop.api.dto.ErrorDTO;
+import com.mypetshop.api.dto.ApiErrorDTO;
 import com.mypetshop.api.dto.MainDTO;
 import com.mypetshop.api.dto.UserDTO;
 import com.mypetshop.api.persistence.model.User;
@@ -50,7 +50,7 @@ public class UserController {
     @ApiOperation(value = "View a list of available users", response = List.class)
     @ApiResponses(value = {
             @ApiResponse(code = 200, message = "Successfully retrieved list"),
-            @ApiResponse(code = 401, message = "002 - User list is empty."),
+            @ApiResponse(code = 400, message = "002 - User list is empty."),
 
     })
     @GetMapping("/cart/user")
@@ -67,7 +67,7 @@ public class UserController {
     @ApiOperation(value = "View the information of a user", response = UserDTO.class)
     @ApiResponses(value = {
             @ApiResponse(code = 200, message = "Successfully retrieved list"),
-            @ApiResponse(code = 401, message = "001 - User doesn't exist!"),
+            @ApiResponse(code = 400, message = "001 - User doesn't exist!"),
 
     })
     @GetMapping("/cart/user/{id}")
@@ -81,7 +81,7 @@ public class UserController {
     		
     	} else {
     		
-    		return new ResponseEntity<MainDTO>(new ErrorDTO(messages.get("msg.user.notexists.code"),messages.get("msg.user.notexists.detail")), HttpStatus.BAD_REQUEST); 
+    		return new ResponseEntity<MainDTO>(new ApiErrorDTO(messages.get("msg.user.notexists.detail")), HttpStatus.BAD_REQUEST); 
     		
     	}
     }
@@ -89,7 +89,7 @@ public class UserController {
     @ApiOperation(value = "Insert a user into MY Pet Shop.", response = List.class)
     @ApiResponses(value = {
             @ApiResponse(code = 200, message = "Successfully insert a user."),
-            @ApiResponse(code = 401, message = "003 - Error while inserting a new user."),
+            @ApiResponse(code = 400, message = "003 - Error while inserting a new user."),
 
     })
     @PostMapping("/cart/user")
@@ -105,7 +105,7 @@ public class UserController {
     		
     	} else {
     		
-    		return new ResponseEntity<MainDTO>(new ErrorDTO(messages.get("msg.user.create.code"),messages.get("msg.user.create.detail")), HttpStatus.BAD_REQUEST); 
+    		return new ResponseEntity<MainDTO>(new ApiErrorDTO(messages.get("msg.user.create.detail")), HttpStatus.BAD_REQUEST); 
     		
     	}
     }
@@ -113,7 +113,7 @@ public class UserController {
     @ApiOperation(value = "Update a user on the MY Pet Shop.", response = List.class)
     @ApiResponses(value = {
             @ApiResponse(code = 200, message = "Successfully update a user."),
-            @ApiResponse(code = 401, message = "004 - Error while updating a user."),
+            @ApiResponse(code = 400, message = "004 - Error while updating a user."),
 
     })
     @PutMapping("/cart/user")
@@ -129,7 +129,7 @@ public class UserController {
     		
     	} else {
     		
-    		return new ResponseEntity<MainDTO>(new ErrorDTO(messages.get("msg.user.update.code"),messages.get("msg.user.update.detail")), HttpStatus.BAD_REQUEST); 
+    		return new ResponseEntity<MainDTO>(new ApiErrorDTO(messages.get("msg.user.update.detail")), HttpStatus.BAD_REQUEST); 
     		
     	}
     }
@@ -137,11 +137,11 @@ public class UserController {
     @ApiOperation(value = "Delete a user on the MY Pet Shop.", response = List.class)
     @ApiResponses(value = {
             @ApiResponse(code = 200, message = "Successfully delete a user."),
-            @ApiResponse(code = 401, message = "005 - Error while deleting a user."),
+            @ApiResponse(code = 400, message = "005 - Error while deleting a user."),
 
     })
-    @DeleteMapping("/cart/user")
-    @ResponseBody
+    
+    @DeleteMapping("/cart/user/{id}")
     public ResponseEntity<?> delete(@PathVariable("id") Integer id) {
     	
        	Optional<User> user = Optional.of(new User(id)); 

@@ -6,6 +6,10 @@ import javax.persistence.Column;
 import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
 import javax.persistence.Table;
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
+
 
 @Entity
 @Table(name = "TBL_ITEM")
@@ -13,16 +17,25 @@ public class Item {
 
 	@EmbeddedId
 	private ItemPK itemPK;
-		
+	
+    @Min(1)
+    @NotNull
 	@Column(name = "product_item_vl")
 	private BigDecimal productItemValue;
 
+    @NotBlank
+    @NotNull
 	@Column(name = "product_item_url")
 	private String productItemUrl;
 
+	@NotBlank
+	@Min(1)
+	@NotNull
 	@Column(name = "product_item_qty")
 	private Integer productItemQuantity;
 	
+	@NotBlank
+	@NotNull
 	@Column(name = "product_item_nm")
 	private String productItemName;
 	

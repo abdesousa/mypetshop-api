@@ -1,5 +1,6 @@
 package com.mypetshop.api.service;
 
+import java.util.List;
 import java.util.Optional;
 
 import com.mypetshop.api.persistence.model.Cart;
@@ -9,6 +10,8 @@ import com.mypetshop.api.persistence.model.Cart;
  * @author Alexandre Sousa (abdesousa@gmail.com)
  */
 public interface CartService {
+	
+	public List<Cart> list();
 	
 	public Optional<Cart> getByUserId(Optional<Integer> userId);
 	

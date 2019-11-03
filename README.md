@@ -55,7 +55,11 @@ solution which requires a high level of security.
 ```
 ### Cart
 ```
-*  
+* GET - cart/: View all shop carts ordered by total value. 
+* GET - cart/{userId}: View the information of a shopping cart based on the selected user id.
+* POST - cart/item/: Insert an item into shopping cart.
+* PUT - user: Update user data.
+* DELETE - cart/{id}: Remove a shop cart.  
 ```
 
 ## Github repository

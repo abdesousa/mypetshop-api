@@ -11,36 +11,22 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
     "id",
     "message"
 })
-public class ErrorDTO extends MainDTO implements Serializable {
+public class ApiErrorDTO extends MainDTO implements Serializable {
 
     private final static long serialVersionUID = 5743458502302735571L;
-
-    @JsonProperty("id")
-    private String id;
     
     @JsonProperty("message")
     private String message;
     
-    public ErrorDTO() {
+    public ApiErrorDTO() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
 
-	public ErrorDTO(String id, String message) {
+	public ApiErrorDTO( String message) {
 		super();
-		this.id = id;
 		this.message = message;
 	}
-
-	@JsonProperty("id")
-    public String getId() {
-        return id;
-    }
-
-    @JsonProperty("id")
-    public void setId(String id) {
-        this.id = id;
-    }
 
     @JsonProperty("message")
     public String getMessage() {

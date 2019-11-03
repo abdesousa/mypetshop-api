@@ -6,6 +6,9 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.validation.constraints.Email;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 
 @Entity
 @Table(name = "TBL_USER")
@@ -16,9 +19,15 @@ public class User {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer userId;
 	
+    @NotBlank
+    @NotNull
 	@Column(name = "user_nm")
 	private String userName;
 
+    
+    @NotBlank(message = "{msg.user.email.blank.detail}")
+    @NotNull(message = "{msg.user.email.null.detail")
+    @Email(message = "{msg.user.email.invalid.detail}")
 	@Column(name = "user_email")
 	private String userEmail;
 

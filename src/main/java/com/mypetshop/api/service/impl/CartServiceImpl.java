@@ -1,5 +1,7 @@
 package com.mypetshop.api.service.impl;
 
+import java.util.Collections;
+import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,6 +28,14 @@ public class CartServiceImpl implements CartService {
 	}
 
 	
+	
+	@Override
+	public List<Cart> list() {
+
+		List<Cart> cartList = cartRepository.findAll();
+		return ((cartList == null) || (cartList.isEmpty())) ? Collections.emptyList() : cartList;		
+		
+	}
 	
 	@Override
 	public Optional<Cart> getByUserId(Optional<Integer> userId) {

@@ -20,7 +20,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.mypetshop.api.components.Messages;
-import com.mypetshop.api.dto.ErrorDTO;
+import com.mypetshop.api.dto.ApiErrorDTO;
 import com.mypetshop.api.dto.MainDTO;
 import com.mypetshop.api.dto.ProductDTO;
 import com.mypetshop.api.persistence.model.Product;
@@ -50,7 +50,7 @@ public class ProductController {
     @ApiOperation(value = "View a list of available products", response = List.class)
     @ApiResponses(value = {
             @ApiResponse(code = 200, message = "Successfully retrieved list"),
-            @ApiResponse(code = 401, message = "002 - Product list is empty."),
+            @ApiResponse(code = 400, message = "002 - Product list is empty."),
 
     })
     @GetMapping("/cart/product")
@@ -85,7 +85,7 @@ public class ProductController {
     @ApiOperation(value = "Insert a product into MY Pet Shop.", response = List.class)
     @ApiResponses(value = {
             @ApiResponse(code = 200, message = "Successfully insert a product."),
-            @ApiResponse(code = 401, message = "003 - Error while inserting a new product."),
+            @ApiResponse(code = 400, message = "003 - Error while inserting a new product."),
 
     })
     @PostMapping("/cart/product")
@@ -101,7 +101,7 @@ public class ProductController {
     		
     	} else {
     		
-    		return new ResponseEntity<MainDTO>(new ErrorDTO(messages.get("msg.product.create.code"),messages.get("msg.product.create.detail")), HttpStatus.BAD_REQUEST); 
+    		return new ResponseEntity<MainDTO>(new ApiErrorDTO(messages.get("msg.product.create.detail")), HttpStatus.BAD_REQUEST); 
     		
     	}
     }
@@ -109,7 +109,7 @@ public class ProductController {
     @ApiOperation(value = "Update a product on the MY Pet Shop.", response = List.class)
     @ApiResponses(value = {
             @ApiResponse(code = 200, message = "Successfully update a product."),
-            @ApiResponse(code = 401, message = "004 - Error while updating a product."),
+            @ApiResponse(code = 400, message = "004 - Error while updating a product."),
 
     })
     @PutMapping("/cart/product")
@@ -125,7 +125,7 @@ public class ProductController {
     		
     	} else {
     		
-    		return new ResponseEntity<MainDTO>(new ErrorDTO(messages.get("msg.product.update.code"),messages.get("msg.product.update.detail")), HttpStatus.BAD_REQUEST); 
+    		return new ResponseEntity<MainDTO>(new ApiErrorDTO(messages.get("msg.product.update.detail")), HttpStatus.BAD_REQUEST); 
     		
     	}
     }
@@ -133,10 +133,10 @@ public class ProductController {
     @ApiOperation(value = "Delete a product on the MY Pet Shop.", response = List.class)
     @ApiResponses(value = {
             @ApiResponse(code = 200, message = "Successfully delete a product."),
-            @ApiResponse(code = 401, message = "005 - Error while deleting a product."),
+            @ApiResponse(code = 400, message = "005 - Error while deleting a product."),
 
     })
-    @DeleteMapping("/cart/product")
+    @DeleteMapping("/cart/product/{id}")
     @ResponseBody
     public ResponseEntity<?> delete(@PathVariable("id") Integer id) {
     	

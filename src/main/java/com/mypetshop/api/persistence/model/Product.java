@@ -8,6 +8,9 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 
 @Entity
 @Table(name = "TBL_PRODUCT")
@@ -18,13 +21,17 @@ public class Product {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer productId;
 	
+	@NotBlank
+	@NotNull
 	@Column(name = "product_nm")
 	private String productName;
 
+    @Min(1)
 	@Column(name = "product_vl")
 	private BigDecimal productValue;
 	
-
+	@NotBlank
+	@NotNull
 	@Column(name = "product_url")
 	private String productUrl;
 	
